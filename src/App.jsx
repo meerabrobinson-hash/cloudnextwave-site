@@ -60,9 +60,88 @@ const systemAreas = [
   },
 ];
 
+function BrandLogo() {
+  return (
+    <svg
+      className="brand-logo"
+      viewBox="0 0 320 136"
+      role="img"
+      aria-labelledby="brand-logo-title"
+    >
+      <title id="brand-logo-title">Cloud Next Wave logo</title>
+      <defs>
+        <linearGradient id="brandGold" x1="0%" x2="100%" y1="0%" y2="100%">
+          <stop offset="0%" stopColor="#f3c54a" />
+          <stop offset="100%" stopColor="#e0a81b" />
+        </linearGradient>
+      </defs>
+
+      <path
+        d="M78 56c3-15 17-25 34-25 12 0 22 5 29 14 4-3 10-5 16-5 15 0 27 12 27 27 0 2 0 4-1 6"
+        fill="none"
+        stroke="url(#brandGold)"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="5"
+      />
+      <path
+        d="M72 62c-11 0-20 9-20 20s9 20 20 20h108c16 0 29-13 29-29"
+        fill="none"
+        stroke="url(#brandGold)"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="5"
+      />
+      <text
+        x="159"
+        y="76"
+        fill="#f8ddb0"
+        fontFamily="Avenir Next, Segoe UI, sans-serif"
+        fontSize="22"
+        fontWeight="700"
+        letterSpacing="0.18em"
+        textAnchor="middle"
+      >
+        AI
+      </text>
+      <path
+        d="M116 91c13 8 29 8 42 0 10-6 22-6 32 0 13 8 29 8 42 0"
+        fill="none"
+        stroke="url(#brandGold)"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="4.5"
+      />
+      <text
+        x="160"
+        y="124"
+        fill="#f5f7fb"
+        fontFamily="Avenir Next, Segoe UI, sans-serif"
+        fontSize="22"
+        fontWeight="650"
+        letterSpacing="0.02em"
+        textAnchor="middle"
+      >
+        Cloud Next Wave
+      </text>
+    </svg>
+  );
+}
+
 export default function App() {
   return (
-    <div className="site-shell">
+    <div className="site-shell" id="top">
+      <header className="site-header">
+        <div className="section-wrap header-bar">
+          <a className="brand-lockup" href="#top" aria-label="Cloud Next Wave home">
+            <BrandLogo />
+          </a>
+          <a className="header-cta" href="mailto:info@cloudnextwaveai.com">
+            Book a Consultation
+          </a>
+        </div>
+      </header>
+
       <main>
         <section className="hero-section">
           <div className="hero-backdrop" />
@@ -93,7 +172,7 @@ export default function App() {
             </div>
 
             <aside className="hero-panel" aria-label="Business outcomes">
-              <p className="panel-label">What clients need most</p>
+              <p className="panel-label">Where we create value</p>
               <ul className="panel-list">
                 <li>Clear decisions on what to buy, keep, or replace</li>
                 <li>Systems that work together instead of side by side</li>
@@ -191,7 +270,13 @@ export default function App() {
 
       <footer className="site-footer">
         <div className="section-wrap footer-layout">
-          <p>Cloud Next Wave</p>
+          <div className="footer-brand">
+            <p className="footer-name">Cloud Next Wave</p>
+            <p className="footer-note">
+              Practical system decisions across Salesforce, Excel, reporting, and applied
+              AI.
+            </p>
+          </div>
           <a href="mailto:info@cloudnextwaveai.com">info@cloudnextwaveai.com</a>
         </div>
       </footer>
