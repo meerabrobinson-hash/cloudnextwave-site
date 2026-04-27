@@ -5,14 +5,12 @@ const solutions = [
     key: "salesforce",
     navLabel: "Salesforce",
     title: "Salesforce",
-    summary: "Clean up CRM workflows, adoption, and reporting.",
-    subtitle: "Make Salesforce easier to use, trust, and run the business from.",
+    summary:
+      "Clean up CRM workflows, adoption, automation, reporting, and AI-supported next steps.",
     improvements: [
-      "Workflow cleanup across sales and service processes",
-      "Reporting confidence and dashboard visibility",
-      "Cleaner handoffs, approvals, and ownership",
-      "Better user adoption and data quality",
-      "Practical AI support for summaries and next steps",
+      "Workflow cleanup across sales and service processes.",
+      "Reporting confidence and dashboard visibility.",
+      "AI-supported summaries, follow-up, and next steps.",
     ],
     bestFit:
       "Best for teams with Salesforce in place but weak adoption, inconsistent reporting, or too much manual follow-up.",
@@ -23,14 +21,12 @@ const solutions = [
     key: "workday",
     navLabel: "Workday",
     title: "Workday",
-    summary: "Reduce approval delays and operational confusion.",
-    subtitle: "Clarify ownership and reduce drag across Workday-related work.",
+    summary:
+      "Reduce approval delays, ownership confusion, reporting gaps, and process friction.",
     improvements: [
-      "Approval flow review and delay reduction",
-      "Ownership clarity across HR or finance operations",
-      "Reporting support and visibility improvements",
-      "Usability and adoption issue cleanup",
-      "AI support for guidance and exception handling",
+      "Approval flow review and delay reduction.",
+      "Ownership clarity across HR or finance operations.",
+      "Reporting support and exception visibility.",
     ],
     bestFit:
       "Best for teams where approvals, handoffs, reporting, or service workflows slow employee or finance operations.",
@@ -41,14 +37,12 @@ const solutions = [
     key: "excel",
     navLabel: "Excel Automation",
     title: "Excel Automation",
-    summary: "Move fragile spreadsheet work into cleaner systems.",
-    subtitle: "Reduce spreadsheet dependency where important work is still manual.",
+    summary:
+      "Move fragile spreadsheet work into cleaner, repeatable, connected processes.",
     improvements: [
-      "Dynamic spreadsheet redesign",
-      "Workbook structure and formula cleanup",
-      "Recurring report automation",
-      "Manual process reduction",
-      "Connected use cases across CRM, reporting, or operations",
+      "Workbook structure and formula cleanup.",
+      "Recurring report and handoff automation.",
+      "Connected use cases across CRM, reporting, or operations.",
     ],
     bestFit:
       "Best for teams running important operational work through spreadsheets that are slow, fragile, or hard to trust.",
@@ -59,14 +53,11 @@ const solutions = [
     key: "reporting",
     navLabel: "Reporting & BI",
     title: "Reporting & BI",
-    summary: "Create dashboards leaders can actually trust.",
-    subtitle: "Make executive reporting cleaner, faster, and more dependable.",
+    summary: "Build dashboards and reporting views leaders can actually trust.",
     improvements: [
-      "Dashboard planning around real operating questions",
-      "KPI cleanup and reporting trust rebuild",
-      "Connected data visibility",
-      "Executive-ready reporting views",
-      "AI-assisted summaries and decision support",
+      "Dashboard planning around real operating questions.",
+      "KPI cleanup and reporting trust rebuild.",
+      "Executive-ready views and decision support.",
     ],
     bestFit:
       "Best for teams with reports in place but no consistent source of truth for executive decisions.",
@@ -92,25 +83,43 @@ const fixCards = [
     title: "Underused systems",
     text: "Tools are live, but value lags.",
   },
+  {
+    title: "AI without direction",
+    text: "Ideas exist, but use cases are unclear.",
+  },
 ];
 
 const pricingPackages = [
   {
     title: "Systems Audit",
     price: "$1,500",
+    description:
+      "90-minute review of workflows, reporting gaps, manual work, and system friction. Includes action roadmap.",
   },
   {
-    title: "Workflow Sprint",
+    title: "Workflow Fix Sprint",
     price: "Starting at $5,000",
+    description: "Repair one broken operational process end-to-end.",
   },
   {
-    title: "Reporting Package",
+    title: "Reporting Clarity Package",
     price: "Starting at $3,500",
+    description: "Dashboard, KPI, and reporting cleanup for clearer decisions.",
   },
   {
-    title: "Monthly Advisory",
+    title: "Ongoing Advisory",
     price: "Starting at $3,000/mo",
+    description:
+      "Monthly support for systems, operations, AI roadmap, and execution.",
   },
+];
+
+const trustItems = [
+  "Salesforce Optimization",
+  "Workday Workflow Support",
+  "Excel Automation",
+  "Reporting & BI",
+  "Practical AI Execution",
 ];
 
 const heroItems = [
@@ -119,6 +128,23 @@ const heroItems = [
   "Less manual work",
   "Better visibility",
   "Practical AI support",
+];
+
+const resultCards = [
+  "Less spreadsheet dependence",
+  "Faster approvals",
+  "Better executive visibility",
+  "Higher Salesforce adoption",
+  "Stronger ownership across teams",
+  "Cleaner operations",
+  "Better decisions sooner",
+  "AI used where it saves time",
+];
+
+const whyCards = [
+  "Practical fixes, not slide decks",
+  "Systems thinking across teams",
+  "AI only where it creates value",
 ];
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mgorbjlp";
@@ -341,7 +367,7 @@ export default function App() {
   const handleContactSubmit = async (event) => {
     event.preventDefault();
     trackCtaClick({
-      label: "Submit",
+      label: "Submit Consultation",
       location: "contact_modal",
       destination: "formspree_submission",
     });
@@ -561,12 +587,13 @@ export default function App() {
           <div className="hero-backdrop" />
           <div className="section-wrap hero-layout">
             <div className="hero-copy">
-              <p className="section-kicker">Operations • Systems • AI Execution</p>
-              <h1>Clearer systems. Faster execution. Better decisions.</h1>
+              <p className="section-kicker">OPERATIONS • SYSTEMS • AI EXECUTION</p>
+              <h1>Turn broken systems into growth engines.</h1>
               <p className="hero-description">
-                We reduce manual work, improve reporting visibility, streamline
-                workflows, and apply <span className="ai-ring">AI</span> where
-                it creates faster execution and better decisions.
+                Cloud Next Wave helps growing businesses streamline operations,
+                improve Salesforce and Workday workflows, reduce spreadsheet
+                dependency, strengthen reporting, and apply AI where it creates
+                measurable business value.
               </p>
 
               <div className="hero-actions">
@@ -615,11 +642,19 @@ export default function App() {
           </div>
         </section>
 
+        <section className="trust-bar-section" aria-label="Consulting capabilities">
+          <div className="section-wrap trust-bar">
+            {trustItems.map((item) => (
+              <span key={item}>{item}</span>
+            ))}
+          </div>
+        </section>
+
         <section className="content-section quick-section">
           <div className="section-wrap">
             <div className="compact-heading">
-              <p className="section-kicker">What we fix</p>
-              <h2>Where businesses get stuck</h2>
+              <p className="section-kicker">WHAT WE FIX</p>
+              <h2>Where businesses get stuck.</h2>
             </div>
 
             <div className="quick-grid">
@@ -654,7 +689,7 @@ export default function App() {
                     type="button"
                     onClick={() =>
                       openSolution(solution, {
-                        label: `View ${solution.title} Details`,
+                        label: "View details",
                         location: "solutions_grid",
                         destination: "solution_modal",
                       })
@@ -679,6 +714,44 @@ export default function App() {
             >
               View starting packages
             </button>
+          </div>
+        </section>
+
+        <section className="content-section results-section">
+          <div className="section-wrap">
+            <div className="compact-heading">
+              <p className="section-kicker">WHAT CHANGES AFTER THE WORK</p>
+              <h2>The business feels lighter, faster, clearer.</h2>
+            </div>
+
+            <div className="results-grid">
+              {resultCards.map((result) => (
+                <article className="result-card" key={result}>
+                  <p>{result}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="content-section why-section">
+          <div className="section-wrap why-layout-premium">
+            <div className="compact-heading">
+              <p className="section-kicker">WHY CLOUD NEXT WAVE</p>
+              <h2>Business judgment. Technical execution.</h2>
+              <p>
+                We identify friction, prioritize what matters, and help fix it
+                inside real operating environments.
+              </p>
+            </div>
+
+            <div className="why-grid">
+              {whyCards.map((item) => (
+                <article className="why-card" key={item}>
+                  <p>{item}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -713,9 +786,8 @@ export default function App() {
               <CloseButton onClick={closeModal} />
               <p className="section-kicker">Selected focus</p>
               <h2>{activeSolution.title}</h2>
-              <p className="modal-lede">{activeSolution.subtitle}</p>
 
-              <div className="modal-grid">
+              <div className="solution-detail-grid">
                 <div className="modal-block">
                   <p className="detail-label">What we improve</p>
                   <ul className="detail-list">
@@ -741,16 +813,23 @@ export default function App() {
             <section className="modal-panel pricing-modal" aria-modal="true" role="dialog">
               <CloseButton onClick={closeModal} />
               <p className="section-kicker">Starting packages</p>
-              <h2>Choose a clear first step.</h2>
+              <h2>Low-risk ways to start.</h2>
 
               <div className="pricing-list">
                 {pricingPackages.map((item) => (
                   <div className="pricing-row" key={item.title}>
-                    <span>{item.title}</span>
+                    <div>
+                      <span>{item.title}</span>
+                      <p>{item.description}</p>
+                    </div>
                     <strong>{item.price}</strong>
                   </div>
                 ))}
               </div>
+
+              <p className="pricing-note">
+                Final scope depends on system complexity and business priorities.
+              </p>
 
               <button
                 className="primary-button modal-action"
@@ -771,7 +850,7 @@ export default function App() {
           {activeModal === "contact" ? (
             <section className="modal-panel contact-modal" aria-modal="true" role="dialog">
               <CloseButton onClick={closeModal} />
-              <p className="section-kicker">Request consultation</p>
+              <p className="section-kicker">REQUEST CONSULTATION</p>
               <h2>Where is growth being slowed today?</h2>
 
               <form className="contact-form" onSubmit={handleContactSubmit}>
@@ -838,7 +917,7 @@ export default function App() {
                 ) : null}
 
                 <button className="primary-button contact-submit" type="submit" disabled={isSubmitting}>
-                  {isSubmitting ? "Sending..." : "Submit"}
+                  {isSubmitting ? "Sending..." : "Submit Consultation"}
                 </button>
               </form>
             </section>

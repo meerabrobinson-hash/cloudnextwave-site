@@ -1379,7 +1379,7 @@ body.has-open-modal {
 }
 
 .compact-hero {
-  padding: 76px 0 96px;
+  padding: 82px 0 74px;
 }
 
 .compact-hero .hero-layout {
@@ -1387,25 +1387,61 @@ body.has-open-modal {
 }
 
 .compact-hero .hero-copy h1 {
-  max-width: 720px;
-  font-size: clamp(2.42rem, 3.92vw, 3.58rem);
-  line-height: 1.11;
+  max-width: 780px;
+  font-size: clamp(4rem, 6vw, 4.875rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
 }
 
 .compact-hero .hero-description {
-  max-width: 44rem;
+  max-width: 48rem;
   margin-top: 24px;
-  font-size: 1rem;
+  font-size: 1.04rem;
+  line-height: 1.74;
 }
 
 .quick-section,
 .solution-preview-section,
+.results-section,
+.why-section,
 .final-cta-section {
-  padding: 88px 0;
+  padding: 86px 0;
 }
 
 .final-cta-section {
-  padding-bottom: 108px;
+  padding-bottom: 104px;
+}
+
+.trust-bar-section {
+  padding: 0 0 22px;
+}
+
+.trust-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 14px;
+  border-top: 1px solid rgba(243, 197, 74, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background:
+    linear-gradient(90deg, transparent, rgba(243, 197, 74, 0.045), transparent),
+    rgba(255, 255, 255, 0.018);
+}
+
+.trust-bar span {
+  font-family: var(--font-display);
+  color: var(--muted-strong);
+  font-size: 0.74rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.trust-bar span + span::before {
+  content: "/";
+  margin-right: 10px;
+  color: rgba(243, 197, 74, 0.5);
 }
 
 .quick-section {
@@ -1419,9 +1455,28 @@ body.has-open-modal {
     linear-gradient(180deg, rgba(13, 26, 45, 0.46), rgba(6, 13, 24, 0.32));
 }
 
+.results-section {
+  background:
+    radial-gradient(circle at 82% 0%, rgba(243, 197, 74, 0.055), transparent 0, transparent 28%),
+    rgba(4, 11, 21, 0.24);
+}
+
+.why-section {
+  background:
+    linear-gradient(180deg, rgba(13, 26, 45, 0.32), rgba(4, 11, 21, 0.24));
+}
+
 .compact-heading {
   max-width: 720px;
   margin-bottom: 34px;
+}
+
+.compact-heading p:not(.section-kicker) {
+  max-width: 620px;
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 .compact-heading h2 {
@@ -1434,21 +1489,33 @@ body.has-open-modal {
 }
 
 .quick-grid,
-.solution-grid {
+.solution-grid,
+.results-grid,
+.why-grid {
   display: grid;
   gap: 22px;
 }
 
 .quick-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .solution-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.results-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.why-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .quick-card,
-.solution-card {
+.solution-card,
+.result-card,
+.why-card {
   position: relative;
   min-height: 190px;
   padding: 24px;
@@ -1468,6 +1535,8 @@ body.has-open-modal {
 
 .quick-card::before,
 .solution-card::before,
+.result-card::before,
+.why-card::before,
 .modal-panel::before,
 .final-cta-card::before {
   content: "";
@@ -1484,7 +1553,9 @@ body.has-open-modal {
 }
 
 .quick-card:hover,
-.solution-card:hover {
+.solution-card:hover,
+.result-card:hover,
+.why-card:hover {
   transform: translateY(-7px);
   border-color: rgba(243, 197, 74, 0.34);
   box-shadow:
@@ -1521,6 +1592,23 @@ body.has-open-modal {
   color: var(--muted);
   font-size: 0.92rem;
   line-height: 1.5;
+}
+
+.result-card,
+.why-card {
+  display: flex;
+  align-items: center;
+  min-height: 118px;
+}
+
+.result-card p,
+.why-card p {
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 750;
+  line-height: 1.36;
+  letter-spacing: -0.01em;
 }
 
 .solution-icon {
@@ -1663,6 +1751,13 @@ body.has-open-modal {
   margin-top: 24px;
 }
 
+.solution-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  margin-top: 22px;
+}
+
 .modal-block {
   padding: 18px;
   border: 1px solid rgba(255, 255, 255, 0.07);
@@ -1683,16 +1778,16 @@ body.has-open-modal {
 
 .pricing-list {
   display: grid;
-  gap: 10px;
+  gap: 12px;
   margin-top: 24px;
 }
 
 .pricing-row {
   display: flex;
   justify-content: space-between;
-  gap: 16px;
-  align-items: center;
-  padding: 16px;
+  gap: 18px;
+  align-items: start;
+  padding: 18px;
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.025);
@@ -1703,10 +1798,26 @@ body.has-open-modal {
   font-weight: 700;
 }
 
+.pricing-row p {
+  max-width: 440px;
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 .pricing-row strong {
   color: var(--accent-soft);
   font-family: var(--font-display);
   text-align: right;
+  white-space: nowrap;
+}
+
+.pricing-note {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .contact-modal {
@@ -1718,9 +1829,19 @@ body.has-open-modal {
 }
 
 @media (max-width: 1180px) {
+  .compact-hero .hero-copy h1 {
+    font-size: clamp(2.875rem, 5.6vw, 3.5rem);
+    line-height: 1.1;
+  }
+
   .quick-grid,
-  .solution-grid {
+  .solution-grid,
+  .results-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -1728,8 +1849,10 @@ body.has-open-modal {
   .compact-hero,
   .quick-section,
   .solution-preview-section,
+  .results-section,
+  .why-section,
   .final-cta-section {
-    padding: 68px 0;
+    padding: 66px 0;
   }
 
   .final-cta-section {
@@ -1737,7 +1860,7 @@ body.has-open-modal {
   }
 
   .compact-hero .hero-copy h1 {
-    font-size: clamp(2.1rem, 8.2vw, 2.85rem);
+    font-size: clamp(2.375rem, 9.8vw, 2.875rem);
     line-height: 1.12;
   }
 
@@ -1752,13 +1875,25 @@ body.has-open-modal {
 
   .quick-grid,
   .solution-grid,
+  .results-grid,
+  .why-grid,
   .modal-grid {
     grid-template-columns: 1fr;
   }
 
   .quick-card,
-  .solution-card {
+  .solution-card,
+  .result-card,
+  .why-card {
     min-height: auto;
+  }
+
+  .trust-bar {
+    justify-content: flex-start;
+  }
+
+  .trust-bar span + span::before {
+    content: none;
   }
 
   .modal-backdrop {
