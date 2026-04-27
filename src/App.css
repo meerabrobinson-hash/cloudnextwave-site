@@ -1820,6 +1820,39 @@ body.has-open-modal {
   line-height: 1.5;
 }
 
+.about-modal {
+  width: min(780px, 100%);
+}
+
+.about-modal-content {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.about-modal-section {
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.about-modal-section p:not(.detail-label) {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.64;
+}
+
+.about-modal-section p:not(.detail-label) + p {
+  margin-top: 12px;
+}
+
+.about-approach-list li {
+  color: var(--text);
+  font-family: var(--font-display);
+  font-weight: 750;
+}
+
 .contact-modal {
   width: min(680px, 100%);
 }

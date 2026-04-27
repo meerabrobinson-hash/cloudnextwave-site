@@ -283,6 +283,16 @@ export default function App() {
     setIsMobileMenuOpen(false);
   };
 
+  const openAbout = (trackingDetails) => {
+    if (trackingDetails) {
+      trackCtaClick(trackingDetails);
+    }
+
+    setActiveModal("about");
+    setIsSolutionsOpen(false);
+    setIsMobileMenuOpen(false);
+  };
+
   const openContact = (trackingDetails) => {
     if (trackingDetails) {
       trackCtaClick(trackingDetails);
@@ -549,6 +559,19 @@ export default function App() {
                 }
               >
                 Pricing
+              </button>
+              <button
+                className="nav-link-button"
+                type="button"
+                onClick={() =>
+                  openAbout({
+                    label: "About",
+                    location: "header_nav",
+                    destination: "about_modal",
+                  })
+                }
+              >
+                About
               </button>
               <button
                 className="nav-link-button"
@@ -838,6 +861,58 @@ export default function App() {
                   openContact({
                     label: "Book Free Strategy Call",
                     location: "pricing_modal",
+                    destination: "contact_modal",
+                  })
+                }
+              >
+                Book Free Strategy Call
+              </button>
+            </section>
+          ) : null}
+
+          {activeModal === "about" ? (
+            <section className="modal-panel about-modal" aria-modal="true" role="dialog">
+              <CloseButton onClick={closeModal} />
+              <p className="section-kicker">About</p>
+              <h2>About Cloud Next Wave</h2>
+
+              <div className="about-modal-content">
+                <section className="about-modal-section">
+                  <p className="detail-label">Why We Started</p>
+                  <p>
+                    Many businesses invest in systems like Salesforce, Workday,
+                    spreadsheets, and reporting tools, yet still struggle with
+                    delays, manual work, unclear ownership, and underused
+                    technology.
+                  </p>
+                  <p>
+                    Cloud Next Wave was created to help companies simplify
+                    operations, improve visibility, and apply automation or AI
+                    only where it creates measurable value.
+                  </p>
+                  <p>
+                    We believe businesses do not need more software. They need
+                    better execution.
+                  </p>
+                </section>
+
+                <section className="about-modal-section">
+                  <p className="detail-label">Our Approach</p>
+                  <ul className="detail-list about-approach-list">
+                    <li>Clarity First</li>
+                    <li>Execution Over Theory</li>
+                    <li>AI With Purpose</li>
+                  </ul>
+                </section>
+              </div>
+
+              <button
+                className="primary-button modal-action"
+                type="button"
+                onClick={() =>
+                  openContact({
+                    label: "Book Free Strategy Call",
+                    location: "about_modal",
                     destination: "contact_modal",
                   })
                 }
